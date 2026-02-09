@@ -50,6 +50,23 @@ The actual application uploads files using the Streamlit UI.
 6. Lambda calls **Amazon Textract (AnalyzeExpense)** to extract structured invoice data.
 7. The extracted output is saved back to S3 in the `json/` folder.
 8. Streamlit fetches the processed output from S3 and displays it to the user.
+ ## 🔁 Lambda Function Deployment Note
+
+The Lambda function code included in this repository was written and tested locally, but it was **deployed and executed using the AWS Lambda Console**.
+
+For this project:
+- The Lambda function was created directly in the AWS Console.
+- The code from `lambda/lambda_function.py` was copied into the Lambda editor.
+- An S3 trigger was configured via the AWS Console to invoke the function on invoice uploads.
+- The Lambda execution role was attached to allow access to Amazon S3, Amazon Textract, and CloudWatch Logs.
+
+This approach was intentionally chosen to:
+- Better understand AWS Lambda configuration and triggers
+- Practice IAM role attachment and permissions
+- Gain hands-on experience with AWS Console–based serverless workflows
+
+The Lambda code in this repository represents the **exact logic used in the deployed function**.
+
 
 ## 🔐 Security & Authentication
 
